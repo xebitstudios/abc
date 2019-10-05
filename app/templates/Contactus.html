@@ -1,0 +1,72 @@
+<div ng-controller="ContactController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer f2f6f6">
+		<div class="bodyContent" id="ns_content">
+			<div class="row mg-left-20" style="background-image:url(/img/contactus.jpg);height:200px;"></div>
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<div class="mg-top-20 col-md-6">
+						<a class="" href="https://www.google.com/maps/place/407+W+Park+Dr,+Fultondale,+AL+35068/@33.598991,-86.8233137,17z/data=!3m1!4b1!4m5!3m4!1s0x888904a01c1a25c5:0xcb3d7bfa2e3c2f26!8m2!3d33.598991!4d-86.821125" target="_blank">
+							<img alt="Atlanta Office" src="/img/atlanta-office.png" />
+						</a>
+					</div>
+				<!-- </div> -->
+				<!-- <div class="col-md-2" style="display:inline-flex;"> -->
+					<div class="col-md-6 mg-top-10" style="font-size:12px;">
+						<h3><strong>PortalWorks</strong></h3>
+						<h4 class="media-heading"><strong>Birmingham Office</strong></h4>
+						<p>PortalWorks Solutions LLC</p>
+						<p>407 West Park Dr</p>
+						<p>Fultondale, AL 35068</p>
+						<p>USA</p>
+						<p>Tel: <span class="cell-number">+1 256 604 PWORKS (6791)</span></p>						
+					</div>
+				</div>
+			    <div class="col-md-4 mg-top-20 mg-bottom-20 pd-bottom-20">
+			    	<div style="margin-bottom:1em;font-size:12px;">
+			    		<h4 class="form-group maxwidth80pct pd-left-20 media-heading"><strong>Contact a Representative</strong></h4>
+			    		<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="text" class="form-control" id="fname" placeholder="First Name">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="text" class="form-control" id="lname" placeholder="Last Name">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="email" class="form-control" id="email" placeholder="Email Address">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="text" class="form-control" id="phone" placeholder="Phone">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="text" class="form-control" id="cname" placeholder="Company Name">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20 mg-bottom-20">
+						  <select id="country" class="form-control" name="country" title"Select your country">
+						  	<option ng-repeat="ct in countrylist" value="{{ct.ctry}}">{{ct.name}}</option>
+						  </select>
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <input type="text" class="form-control" id="jtitle" placeholder="Job Title">
+						</div>
+						<div class="form-group maxwidth80pct pd-left-20">
+						  <textarea rows="4" cols="50" type="text" class="form-control" id="note" placeholder="Note"></textarea>
+						</div>
+					</div>
+					<div class="subheadertabs form-group mg-right-10 mg-left-15 mg-top-20">
+						<a ng-click="sendForm()">Contact Us</a>
+					</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

@@ -1,0 +1,91 @@
+<div ng-controller="SscetemplateController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer">
+		<div class="bodyContent" id="">
+			<div class="col-sm-12 tblgridbg margintopbottom30px">
+				<div class="subjsummary fullshadow2">	
+					<div class="summaryitems">
+						<div>
+							<label>Subject: </label> <span>{{headings.subject}}</span>
+						</div>
+						<div>
+							<label>Exam Type:</label> <span>{{headings.examtype | examtypefilter}}</span>
+						</div>
+						<div>
+							<label>Sections:</label> <span>{{headings.sections}}</span>
+						</div>
+						<div>
+							<label>Years:</label> <span>{{headings.years}}</span>
+						</div>
+					</div>
+				</div>
+				<div id="examSubjYearListView" class="inline fullshadow">
+					<div class="mg-bottom-20">
+						<strong>Available Examination Years, (Click any year below to select and view sections).</strong>
+					</div>
+					<ul id="ulyrbox" class="ulyearbox">
+						<li ng-repeat="yr in headings.yrslist" ng-click="yrclick(yr)">
+							<a class="headXLink yearbox {{ yr | selectedexamfilter: yrpick}}">{{yr}}</a>
+						</li>
+					</ul>
+				</div>
+				<div id="boxsectns">
+					<div class="inline fullshadow">
+						<div class="sectnbox"><div>
+							<span><strong>{{q1.title}}</strong></span>
+						</div>
+						<div class="mg-top-20 mg-bottom-10">{{q1.desc}}</div>
+						<div class="mg-top-10 mg-bottom-20">
+							<strong>Time Alloted: </strong> {{q1.allottime}}
+						</div>
+						<div class="subheadertabs fltleft">
+							<div class="mg-right-10 mg-bottom-20 fltleft">
+								<a ng-click="gotoparta(q1.href1)" id="startexama">
+									<span class="fa fa-book fa-1 btn btn-warning"></span> {{q1.btn1lbl}}
+								</a>
+							</div>
+							<div class="fltleft">
+								<a href="{{q1.href2}}" id="viewexamscores">
+									<span class="fa fa-check-square-o fa-1 btn btn-success"></span> {{q1.btn2lbl}}
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inline fullshadow mg-bottom-40">
+					<div class="sectnbox">
+						<div>
+							<span><strong>{{q2.title}}</strong></span>
+						</div>
+						<div class="mg-top-20 mg-bottom-10">{{q2.desc}}</div>
+						<div class="mg-top-10 mg-bottom-20">
+							<strong>Time Alloted: </strong> {{q2.allottime}}
+						</div>
+						<div class="subheadertabs fltleft">
+							<div class="mg-right-10 mg-bottom-20 fltleft">
+								<a ng-click="gotopartb(q2.href1)" id="startexama">
+									<span class="fa fa-book fa-1 btn btn-warning"></span> {{q2.btn1lbl}}
+								</a>
+							</div>
+							<div class="fltleft">
+								<a href="{{q2.href1}}" id="viewexamscores">
+									<span class="fa fa-check-square-o fa-1 btn btn-success"></span> {{q2.btn2lbl}}
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

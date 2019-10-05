@@ -1,0 +1,38 @@
+<div ng-controller="LoginController">
+	<div class="mg-top-20 mg-left-20 mg-right-20" growl></div>
+
+	<!-- Summary Section -->
+	<div class="col-md-12 bdyimg" id="loginform">
+		<div class="col-md-12 mg-top-20 mg-bottom-20"></div>
+		<div class="row mg-top-20 mg-bottom-20">
+			<div class="col-md-4 mg-top-20 mg-bottom-20"></div>
+			<div class="col-md-3 mg-top-20 mg-bottom-20 mg-left-20 mg-right-20">
+				<div class="panel-default">				
+				    <h1 class="mg-top-20 mg-bottom-20" style="text-align:center;vertical-align:middle;line-height:50px;">Welcome to SSCE Exams</h1>
+				    <div class="mg-bottom-20">
+				    	<form>
+						  <fieldset class="form-group">
+						    <input type="text" class="form-control" id="formUsername" placeholder="Pick a username" ng-model="username">
+						  </fieldset>
+						  <fieldset class="form-group mg-top-20 mg-bottom-20">
+						    <input type="text" class="form-control mg-bottom-20" id="formPassword" placeholder="Create your password" ng-model="pword">
+						  </fieldset>						  
+						</form>
+				    </div>
+					<div class="divcenter mg-bottom-20 feature-list subheadertabs" ng-click="submitForm()">
+						<a ng-click="submitForm()" style="width:100%;display:block;border:1px solid #ccc;">
+							<span class="fa fa-sign-in fa-1 btn btn-default"></span>&nbsp;&nbsp; Log In
+						</a>
+					</div>
+
+				    <div class="divcenter mg-bottom-20">
+				    	<a href="" class="linkforgotpassword">Forgot password?</a>
+				    </div>
+			    </div>
+			</div>	
+			<div class="col-md-12" style="margin-top:20px;margin-bottom:20px;"></div>	
+			<div class="col-md-4" style="margin-top:20px;margin-bottom:20px;"></div>
+		</div>
+	</div>
+
+</div>

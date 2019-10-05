@@ -1,0 +1,71 @@
+<div ng-controller="LandingController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer">
+		<div class="bodyContent " id="b_content">
+			<div class="homecontainer" role="main">
+				<div class="welcomepane" ng-if="pgwidth">
+					<h2 class="welcomeheader">Delivering Knowledge</h2>
+					<br><br><br>
+					<div class="welcomeblurb">
+						<p>Take past WAEC and NECO SSCE examinations in a computerised, self-paced environment anywhere, anytime, from your favorite devices.</p>
+						<p>Use the Analytics section to view detailed analysis of your historical tests, scores, accuracy, measured progress and see where you need to concentrate more of your effort before your examination day.</p>
+					</div>
+				</div>
+				<div class="welcomepane" ng-if="pgwidth">
+					<h2 class="welcomeheader">Getting you Prepared</h2>
+					<div class="welcomeblurb">
+						<p>Use our automatic synthetic question generating system to take more questions than the regularly available from past questions.</p> 
+						<p>When you think you have mastered the question techniques and pacing, go ahead and take any of the real past past questions from previous years in the test center and see how you far you progressed with detailed analytics.</p>
+					</div>
+				</div>
+
+				<div class="startpane" role="navigation">
+					<div class="startpaneicons">
+						<ul class="swTileList">
+							<li class="swTile wideTile" style="background-color:#e2e2e2;height:150px;margin-bottom:20px;border-radius:8px;">
+								<a class="swTileLink" id="sp_Word" ng-click="testcenter()" target="_top" style="border-color:transparent">
+									<div>
+										<div>
+											<img src="img/log4.png" style="width:150px;margin-top:10px;">
+											<h3>Test Center</h3>
+										</div>										
+									</div>
+								</a>
+							</li><br>
+							<li class="swTile wideTile" style="background-color:#6ba7c8;height:150px;margin-bottom:20px;border-radius:8px;">
+								<a class="swTileLink" id="sp_Outlook" ng-click="analytics()" target="_top" style="border-color:transparent">
+									<div>
+										<div>
+											<img src="img/log1.png" style="width:150px;margin-top:10px;">
+											<h3>Analytics</h3>
+										</div>										
+									</div>
+								</a>
+							</li><br>
+							<li class="swTile wideTile" style="background-color:#f7be74;height:150px;margin-bottom:20px;border-radius:8px;">
+								<a class="swTileLink" id="sp_People" ng-click="synthetics()" target="_top" style="border-color:transparent">
+									<div>
+										<div>
+											<img src="img/log2.png" style="width:150px;margin-top:10px;">
+											<h3>Synthetics</h3>
+										</div>										
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

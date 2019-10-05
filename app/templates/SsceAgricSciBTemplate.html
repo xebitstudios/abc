@@ -1,0 +1,57 @@
+<div ng-controller="SsceagricscibtemplateController">
+	<mock-header></mock-header>
+	<div growl></div>
+	<div class="bodyContainer">
+		<div class="bodyContent" id="">
+			<div class="col-sm-12 tblgridbg margintopbottom30px" style="font-size:larger;">
+				<div class="embos dib">
+					<div class="subjsummary inline mg-right-20 mg-bottom-5 fltleft timer0">
+						<label>Subject: </label> SSCE Agricultural Science 2,&nbsp;
+						<label>Exam Year: </label> Jun 2008, Section: B (Objective Test Questions),&nbsp;
+						<label>Questions: </label> 60,&nbsp;
+						Time Used: <label style="">{{timegone}}</label>,&nbsp;
+						Time Left: <label style="">{{timeleft}}</label>.&nbsp;
+					</div>
+					<div class="mg-bottom-5 progress-bar {{ pctused | progressbarfilter}}" role="progressbar" aria-valuenow="{{pctused}}" aria-valuemin="0" aria-valuemax="100" style="width:{{pctused}}%;">{{pctused}}%</div>
+				</div>
+				<div>
+					<div class="subjsummary inline embos">
+						<div class="mg-bottom-10"><strong>Instructions: </strong>Answer All questions in this section.</div>
+					</div>
+					<div id="phy_qtt_tmpl_a" class="embos" style="float:left;clear:both;">
+						<div>
+							<div style="margin-bottom:10px;padding:10px;">
+								<p><strong>Question {{qqt.Q.qs}}</strong></p>
+								<img ng-if='getImage(qqt.Q.img)' src="{{showImage(qqt.Q.img)}}" style="max-width:300px;margin-bottom:10px;">
+								<div class="emboss" ng-repeat="qst in qqt.Q.opts">
+									<p ng-if='getLetter(qst, $index)' class="eembos">
+										<input type="checkbox" name="opt{{$index}}" value=''>&nbsp;
+										{{getLetter(qst, $index)}}&nbsp;&nbsp;
+										<img ng-if='getImage(qst)' src="{{showImage(qst)}}" style="max-width:200px;">
+									</p>									
+								</div>		
+							</div>						
+						</div>
+					</div>
+					<div id="" class="inline fullshadow mg-bottom-40">
+						<ul id="ulyrbox2" class="ulyearbox">
+							<li ng-repeat="navbtn in navbtns">
+								<a class="headXLink yearbox {{navbtn.title | selectedexamfilter:activeNav}}" ng-click="btnclick($index)">
+									<span class="{{navbtn.icon}}" aria-hidden="true"></span>&nbsp;&nbsp;{{navbtn.title}} 
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+		    </div>	    
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

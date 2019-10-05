@@ -1,0 +1,84 @@
+<div ng-controller="RegisterSchoolController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer row bdyimg">
+		<div class="col-sm-12 tblgridbg mg-left-10">
+			<h2>New School Registration</h2>
+		</div>
+		<div class="col-sm-10 row">
+    		<div id="registerForm">
+		  		<div class="col-md-10">
+		  			<div class="form-group col-md-3">
+					  <label for="schusername">Choose School Username:</label>
+					  <input type="text" class="form-control" id="schusername" placeholder="Enter username">
+					</div>
+					<div class="form-group col-md-3">
+					  <label for="schpwd">Choose School Password:</label>
+					  <input type="text" class="form-control" id="schpwd" placeholder="Enter password">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="contactperson">Contact Person:</label>
+					  <input type="text" class="form-control" id="contactperson" placeholder="Enter School Contact">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="email">Contact Email Address:</label>
+					  <input type="text" class="form-control" id="email" placeholder="Enter School Email">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="contactphone">Contact Person Phone:</label>
+					  <input type="text" class="form-control" id="contactphone" placeholder="Enter Phone Number">
+					</div>
+		    		<div class="form-group col-md-6">
+					  <label for="schoolname">School Name and Address:</label>
+				      <textarea class="form-control" rows="3" id="schoolname" placeholder="Enter School Name and Address"></textarea>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="schooltype">School Type:</label>
+					  <label class="checkbox-inline marginleft30px">
+				        <input type="checkbox" value="">Pre-K
+				      </label>
+				      <label class="checkbox-inline marginleft30px">
+				        <input type="checkbox" value="">Kindergarten
+				      </label>
+				      <label class="checkbox-inline marginleft30px">
+				        <input type="checkbox" value="">Nursery &amp; Primary
+				      </label>
+				      <label class="checkbox-inline marginleft30px">
+				        <input type="checkbox" value="">Secondary
+				      </label>
+				      <label class="checkbox-inline marginleft30px">
+				        <input type="checkbox" value="">Tertiary
+				      </label>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="subscription">Subscription Type:</label>&nbsp;&nbsp;
+					  <div class="radio-inline marginleft30px">
+					      <label><input type="radio" name="optradio">Free</label>
+					  </div>
+					  <div class="radio-inline marginleft30px">
+					      <label><input type="radio" name="optradio">Basic</label>
+					  </div>
+					  <div class="radio-inline disabled marginleft30px">
+					      <label><input type="radio" name="optradio" disabled="">Premium</label>
+					  </div>
+					</div>
+	    	</div>
+		</div>
+		<div class="col-sm-12 tblgridbg row mg-left-10 mg-bottom-40">
+			<div class="subheadertabs fltleft">
+				<a ng-click="registernewschool()">
+					<span class="fa fa-user-plus fa-1 btn btn-success"></span> Sign Up your School
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

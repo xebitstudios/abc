@@ -1,0 +1,47 @@
+<div ng-controller="TestcenterController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer f2f6f6">
+		<div class="bodyContent" id="ns_content">
+			<div class="col-sm-12 tblgridbg margintopbottom30px">
+				<div class="subheadertabs inline">
+					<a id="selopt" class="floatleftmarginb10" ng-click="setRealtimeScore()">
+						<input id="rtscore" type="checkbox" name="rtscore" value=""> Select Realtime Scoring<br> 
+					</a>
+				</div>
+				<!-- <div class="subheadertabs inline"> -->
+					<!-- <a href="/retakeexams" id="h_analyticsTC" class="floatleftmarginb10"><span class="fa fa-bookmark fa-1"></span> Retake Full Exams</a> -->
+					<!-- <a href="/viewpastscores" id="h_syntheticsTC" class="floatleftmarginb10"><span class="fa fa-bookmark-o fa-1"></span> Retake Exam. Sections</a> -->
+				<!-- </div> -->
+				<div class="margintopbottom30px">
+			      <div id="examSubjListView" class="paddingtop20">			      	
+			      	<h6>Below is a subjects list of all the past SSCE examination years available on SSCE Exams platform. Select any of the examinations to see the full examination profile.</h6>
+			      	<div class="" id="examsubj">
+			      		<ul class="feature-list">
+			      			<li ng-repeat="subj in examsubjects" style="background-color:{{subj.bgcolor}};">
+					  		  <img src="/img/{{subj.image}}" style="width:100%;">
+					  		  <a ng-click="gotoExam(subj.name, subj.href)" title="{{subj.name}} Exams">
+					  		    <h3 class="is_link" style="background-color:#fff;border:1px solid #fff;border-radius:6px;padding:4px;">{{subj.name}}</h3>
+					  		  </a>
+					  		  <p><strong>Exam Name: {{subj.examlist.join()}}</strong></p>
+					  		  <div style="word-wrap: break-word;">
+							    <strong>Available Years:</strong> {{subj.availyears.join()}}.
+						      </div>
+					  		</li>
+			      		</ul>
+					</div>
+				  </div>
+			    </div>
+		    </div>	    
+		</div>
+	</div>
+
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

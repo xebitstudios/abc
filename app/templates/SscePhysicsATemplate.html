@@ -1,0 +1,58 @@
+<div ng-controller="SscephysicsatemplateController">
+	<mock-header></mock-header>
+	<div growl></div>
+	<div class="bodyContainer">
+		<div class="bodyContent" id="">
+			<div class="col-sm-12 tblgridbg margintopbottom30px" style="font-size:larger;">
+				<div class="embos dib">
+					<div class="subjsummary inline mg-right-20 mg-bottom-5 fltleft timer0">
+						<div class="mg-top-5 mg-bottom-5"><label>Subject: </label> Physics 2</div>
+						<div class="mg-bottom-5"><label>Exam Year: </label> Nov 2008, Section: A (Essay Questions)</div>
+						<div class="mg-bottom-5"><label>Questions: </label> 5</div>
+					</div>
+					<div class="subjsummary inline mg-right-20 mg-bottom-5 fltleft timer0">
+						<div class="mg-top-5 mg-bottom-5">Time Used: <label style="">{{timegone}}</label></div>
+						<div class="mg-top-5 mg-bottom-5">Time Left: <label style="">{{timeleft}}</label></div>
+						<div class="mg-bottom-5 progress-bar {{ pctused | progressbarfilter}}" role="progressbar" aria-valuenow="{{pctused}}" aria-valuemin="0" aria-valuemax="100" style="width:{{pctused}}%;">{{pctused}}%</div>
+					</div>
+				</div>
+				<div>
+					<div class="subjsummary inline embos">
+						<div class="mg-bottom-10"><strong>Instructions:</strong></div>
+						<div class="mg-bottom-10">Answer three questions only in this section.</div>
+					</div>
+					<div id="phy_qtt_tmpl_a" class="embos" style="float:left;clear:both;">
+						<div>
+							<div style="margin-bottom:10px;padding:10px;">
+								<p><strong>Question [{{qqt.Qval}}]</strong></p>
+								<div class="emboss" ng-repeat="qst in qqt.Q">									
+									<p ng-repeat="cqt in qst">
+										<strong ng-if='$index==0'></strong>{{checkImage(cqt)}}
+										<img ng-if='getImage(cqt)' src="{{showImage(cqt)}}" style="width:90%;max-width:300px;">
+									</p><br/>
+								</div>		
+							</div>						
+						</div>
+					</div>
+					<div id="" class="inline fullshadow mg-bottom-40">
+						<ul id="ulyrbox2" class="ulyearbox">
+							<li ng-repeat="navbtn in navbtns">
+								<a class="headXLink yearbox {{navbtn.title | selectedexamfilter:activeNav}}" ng-click="btnclick($index)">
+									<span class="{{navbtn.icon}}" aria-hidden="true"></span>&nbsp;&nbsp;{{navbtn.title}} 
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+		    </div>	    
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

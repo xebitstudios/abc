@@ -1,0 +1,185 @@
+<div ng-controller="AnalyticsController">
+	<mock-header></mock-header>	
+	<div growl class="mg-left-10 mg-right-10 mg-top-10"></div>
+	<div class="bodyContainer mg-right-15 mg-bottom-10 pd-bottom-10">
+	   <!-- Summary Section -->
+	   <div class="col-md-12 pd-left-0 pd-right-0 mg-bottom-10 mg-top-10" id="quicklinks3">
+	   		<div id="analy5" class="col-md-3">
+	   		   <!-- Recent Exam Details Section -->
+			   <div class="row {{hide[0].hideval}}">
+			       <div id="menucollapse" class="col-md-11 no-gutter am-notice">			       	
+				   	  <div class="col-md-12">
+				   	  	 <i class="fa fa-times pull-right pd-top-10 pd-right-10" ng-click="closeme('analy5')"></i>
+				         <div class="panel-default history-list-h">
+				            <div class="history-list-heading"><i class="fa fa-clock-o"></i> &nbsp;Recent Exam Attempts - <em style="color:#1A5276;">{{recentexams.name}}</em></div>
+				            <div class="history-list-body">
+				               <table class="table">
+				                  <tbody>
+				                    <tr ng-repeat="att in recentexams.subjscores">
+				                    	<!-- <recent-exam attn="att" indx="$index"></recent-exam> -->
+				                        <td>{{att.subj}} {{att.year}}</td>
+				                        <td class="hidden-md">
+				                           <div class="mini-notice-{{att.colr}}"><i class="fa fa-check"></i> {{att.pct}}%</div>
+				                        </td>
+				                        <td class="timestamp"> &nbsp; &nbsp;{{att.examday}} {{att.examtime}}{{att.daysection}}</td>
+				                        <td>
+				                           <div class="dropdown pull-right">
+				                              <i class="fa fa-caret-down dropdown-toggle" type="button" data-toggle="dropdown"></i>
+				                              <ul class="dropdown-menu">
+				                                 <li><a data-toggle="collapse">View Result</a></li>
+				                                 <li><a data-toggle="collapse">Retake Exam</a></li>
+				                                 <li><a data-toggle="collapse">Continue Exam</a></li>
+				                              </ul>
+				                           </div>
+				                        </td>
+				                    </tr>
+				                  </tbody>
+				               </table>
+				            </div>
+				         </div>
+				      </div>
+				   </div>
+				</div>
+	   		</div>	
+	   		<div class="col-md-9">
+	   			<div id="analy6" class="row {{hide[1].hideval}}">
+	   				<div id="analy{{$index}}" class="col-md-3" ng-repeat="rowt in toprow">
+	   					<top-row toproww="toprow" indx="$index"></top-row>
+					</div>
+		   		</div>
+		   		<div id="analy7" class="row {{hide[2].hideval}}">
+				   <div class="row mg-left-0 mg-right-0 mg-top-20">
+				      <div id="hideme{{$index}}" class="col-md-3 col-sm-3" ng-repeat="subj in examscores.results">
+				      	<exam-score subjj="subj" indx="$index"></exam-score>
+				      </div>
+				   </div>
+		   		</div>
+	   		</div>
+	   </div>
+	   <!-- Charts Section -->
+	   <div class="row mg-left-5">
+		   <div id="menucollapse3" class="col-md-4 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[3].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	<div class="form-group pd-left-20 mg-right-10" style="font-size:10px;">
+				    <select id="subjlst1" class="form-control" name="subjlst1" title"Select Subject">
+				  	  <option ng-repeat="sj in subjlist" value="{{sj.code}}">{{sj.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group mg-right-10" style="font-size:10px;">
+				    <select id="subjyr1" class="form-control" name="subjyr1" title"Select Year">
+				  	  <option ng-repeat="sy in subjyear" value="{{sy.code}}">{{sy.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart2Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		   	  	  <div id="chart2" style="margin:0 auto"></div>
+		      </div>
+		   </div>
+		   <div id="menucollapse6" class="col-md-4 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[7].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	<div class="form-group pd-left-20 mg-right-10" style="font-size:10px;">
+				    <select id="subjlst2" class="form-control" name="subjlst2" title"Select Subject">
+				  	  <option ng-repeat="sj in subjlist" value="{{sj.code}}">{{sj.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart5Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		          <div id="chart5" style="margin:0 auto"></div>
+		      </div>
+		   </div>
+		   <div id="menucollapse4" class="col-md-3 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[5].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	  <div class="form-group pd-left-20  mg-right-10" style="font-size:10px;">
+				    <select id="subjyr3" class="form-control" name="subjyr3" title"Select Year">
+				  	  <option ng-repeat="sy in subjyear" value="{{sy.code}}">{{sy.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart3Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		          <div id="chart3" style="margin:0 auto"></div>
+		      </div>
+		   </div>
+		   <div id="menucollapse5" class="col-md-4 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[6].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	  <div class="form-group pd-left-20 mg-right-10" style="font-size:10px;">
+				    <select id="subjnum" class="form-control" name="subjnumb" title"Top 5">
+				  	  <option ng-repeat="sn in subjnumber" value="{{sn.code}}">{{sn.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart4Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		          <div id="chart4" style="margin:0 auto"></div>
+		      </div>
+		   </div>
+		   <div id="menucollapse2" class="col-md-4 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[4].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	  <div class="form-group pd-left-20 mg-right-10" style="font-size:10px;">
+				    <select id="subjmth1" class="form-control" name="subjmth1" title"Select Month">
+				  	  <option ng-repeat="sm in subjlist" value="{{sm.code}}">{{sm.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group mg-right-10" style="font-size:10px;">
+				    <select id="subjyr2" class="form-control" name="subjyr2" title"Select Year">
+				  	  <option ng-repeat="sy in subjyear" value="{{sy.code}}">{{sy.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart1Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		          <div id="chart1" style="margin:0 auto"></div>
+		      </div>
+		   </div>		   	
+		   <div id="menucollapse7" class="col-md-3 no-gutter am-notice mg-bottom-10 mg-right-10 {{hide[8].hideval}}">
+		   	  <div class="row col-md-12" style="display:flex;">
+		   	  	<div class="form-group pd-left-20 mg-right-10" style="font-size:10px;">
+				    <select id="subjlst3" class="form-control" name="subjlst3" title"Select Subject">
+				  	  <option ng-repeat="sj in subjlist" value="{{sj.code}}">{{sj.name}}</option>
+				    </select>
+				  </div>
+				  <div class="form-group subheadertabs mg-top-10">
+						<a ng-click="chart6Update()" style="border-radius:4px;">Update</a>
+				  </div>
+		   	  </div>
+		   	  <div class="col-md-12">
+		          <div id="chart6" style="margin:0 auto"></div>
+		      </div>
+		   </div>		   
+		</div>
+		<!-- Navbar Section -->
+		<div class="col-md-12 mg-left-5" ng-if="pgwidth">
+			<nav aria-label="Page navigation">
+			  <ul class="pagination" style="margin: 10px 0px;">
+			    <li ng-click="fclick()"><a>First</a></li>
+			    <li ng-click="pclick()"><a>Prev</a></li>			    
+			    <li class="active"><a>{{currentpage}}</a></li>
+			    <li ng-click="nclick()"><a>Next</a></li>
+			    <li ng-click="lclick()"><a>Last</a></li>
+			  </ul>
+			</nav>
+		</div>
+		<div class="mg-bottom-10"></div>
+   </div>
+   
+
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>

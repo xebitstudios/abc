@@ -1,0 +1,48 @@
+<div ng-controller="PricingController">
+	<mock-header></mock-header>
+
+	<div growl></div>
+	<div class="bodyContainer f2f6f6">
+		<div class="bodyContent" id="ns_content">
+			<div class="col-md-12 tblgridbg margintopbottom30px">
+				<div class="col-md-12">
+					<div style="font-size:xx-large;text-align:center;" class="mg-top-20 mg-bottom-20 clrgrey"><em>Priced for everyone</em></div>
+					<div>
+						<p style="font-size:x-large;color:#333;text-align:center;" class="mg-bottom-20"><em>
+							SSCEexams is free to use for students preparing for the SSCE Examinations, Standard and Premium versions allow students, parents, and school instructors work together to achieve a single goal.</em>
+						</p>
+						<div class="mg-bottom-20 subheadertabs">
+							<a href="#/signup" class="btn btn-block btn-default setmiddle" style="width:250px;">Join SSCEexams for free</a>
+						</div>
+					</div>
+				</div>
+				<div class="margintopbottom30px">
+			      <div id="examSubjListView" class="paddingtop20">			      	
+			      	<div class="" id="examsubj">
+			      		<ul class="flist col-md-12" style="justify-content:center;">
+			      			<li class="w250 col-md-4" ng-repeat="subj in examsubjects" style="background-color:#F8F9F9;">
+					  		  <h2><strong><em>{{subj.name}}</em> - {{subj.price}}  / per user / month</strong></h2><br>
+					  		  <div style="word-wrap:break-word;text-align:justify;font-size:12px;">
+					  		  	<p>{{subj.notes}}.</p>
+					  		  	<p><i class="{{subj.icn}}"></i> {{subj.side}}.</p>
+					  		  </div>
+						      <div class="mg-top-20 subheadertabs pricebtn">
+						      	<a ng-click="pricehref(subj.href)" class="btn btn-block">{{subj.btnval}}</a>
+						      </div>
+					  		</li>
+			      		</ul>
+					</div>
+				  </div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+	
+	<mock-footer></mock-footer>
+
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
+	</script>
+</div>
