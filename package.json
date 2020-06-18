@@ -13,7 +13,7 @@
   "author": "Adetunji Oduyela",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.4.4",
+    "angular": "^1.8.0",
     "angular-animate": "^1.5.8",
     "angular-cookies": "^1.4.4",
     "angular-moment": "^1.0.0-beta.6",
